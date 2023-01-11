@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:viewsmodels="clr-namespace:BudgetCalc.ViewsModels"
+
+             x:Class="BudgetCalc.BudgetPage"
+             Title="BudgetPage">
+    <ContentPage.BindingContext>
+        <viewsmodels:ListModelView/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="Auto, *">
+        <ListView Grid.Row="1" x:Name="lstView" HasUnevenRows="True" ItemsSource="{Binding expenses}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label HorizontalOptions="Center" Text="{Binding Date,  StringFormat='{0:yyyy.MM.dd HH:mm}'}" />
+                            <HorizontalStackLayout HorizontalOptions="Center">
+                                <Label Text="{Binding Amount}"/>
+                                <Label Text="{Binding Type}" Margin="10,0,0,0"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
