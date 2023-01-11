@@ -18,7 +18,10 @@ namespace BudgetCalc.Data
             connection.CreateTableAsync<Expense>().Wait();
         }
 
-
+        public bool DeleteData(Expense selected)
+        {
+            return connection.DeleteAsync(selected).Result == 1 ? true : false;
+        }
         public ObservableCollection<Expense> GetAllData()
         {
             ObservableCollection<Expense> obs = new ObservableCollection<Expense>();

@@ -14,27 +14,29 @@ namespace BudgetCalc
         public int Amount { get; set; }
         public string Type { get; set; }
         public DateTime Date { get; set; }
-        public bool IsIncome { get; set; }
+        public string IsIncome { get; set; }
 
         
         public Expense()
         {
 
         }
-        public Expense(int amount, string type, bool isIncome)
+        public Expense(int amount, string type, string isIncome)
         {
             Amount = 0;
             Type = "";
             Date = DateTime.Now;
-            IsIncome = false;
+            IsIncome = "";
         }
 
-        public void SetData(int amount, string type, bool isIncome)
+        public void SetData(int amount, string type, string isIncome)
         {
             Amount= amount;
             Type = type;
             Date = DateTime.Now;
             IsIncome= isIncome;
         }
+
+
     }
 }

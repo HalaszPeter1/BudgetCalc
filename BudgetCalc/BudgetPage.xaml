@@ -4,7 +4,7 @@
             xmlns:viewsmodels="clr-namespace:BudgetCalc.ViewsModels"
 
              x:Class="BudgetCalc.BudgetPage"
-             Title="BudgetPage">
+             Title="Pénzügy">
     <ContentPage.BindingContext>
         <viewsmodels:ListModelView/>
     </ContentPage.BindingContext>
@@ -14,15 +14,34 @@
         </Style>
     </ContentPage.Resources>
     <Grid RowDefinitions="Auto, *">
-        <ListView Grid.Row="1" x:Name="lstView" HasUnevenRows="True" ItemsSource="{Binding expenses}">
+        <Border BackgroundColor="DarkSlateGrey">
+            <HorizontalStackLayout HeightRequest="50" Margin="0,20,0,0" HorizontalOptions="Center" >
+                <Label Text="Egyenleged: " FontSize="25" ></Label>
+                <Label x:Name="lblBalance" FontSize="25" ></Label>
+                <Label Text="Ft" FontSize="25" ></Label>
+            </HorizontalStackLayout>
+        </Border>
+
+        <ListView Grid.Row="1" x:Name="lstView" ItemSelected="data_Selected" HasUnevenRows="True" ItemsSource="{Binding expenses}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <VerticalStackLayout HorizontalOptions="Center">
-                            <Label HorizontalOptions="Center" Text="{Binding Date,  StringFormat='{0:yyyy.MM.dd HH:mm}'}" />
+                        <VerticalStackLayout WidthRequest="250" HorizontalOptions="Center">
+                            <Border BackgroundColor="DarkGray">
+                                <Label Text="{Binding IsIncome}" HorizontalOptions="Center" />
+                            </Border>
                             <HorizontalStackLayout HorizontalOptions="Center">
+                                <Label Text="Dátum: "></Label>
+                                <Label HorizontalOptions="Center" Text="{Binding Date,  StringFormat='{0:yyyy.MM.dd HH:mm}'}" />
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout HorizontalOptions="Center">
+                                <Label Text="Összeg: " />
                                 <Label Text="{Binding Amount}"/>
-                                <Label Text="{Binding Type}" Margin="10,0,0,0"/>
+                                <Label Text="Ft"/>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout HorizontalOptions="Center">
+                                <Label Text="Típus: "/>
+                                <Label Text="{Binding Type}"/>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </ViewCell>

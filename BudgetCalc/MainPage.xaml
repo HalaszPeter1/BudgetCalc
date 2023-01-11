@@ -19,7 +19,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="bdg_calc.png" HeightRequest="150" WidthRequest="150"></Image>
+                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="bdg_calc2.png" HeightRequest="150" WidthRequest="150"></Image>
                 <Label Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="2" Text="Összeg" HorizontalTextAlignment="Center" FontSize="25" Padding="0,0,0,30"/>
                 <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" WidthRequest="300" HeightRequest="50" Margin="0,0,0,30">
                     <Entry  Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" x:Name="AmountEntry" TextColor="Black"  WidthRequest="300" HeightRequest="50" HorizontalTextAlignment="Center"/>
